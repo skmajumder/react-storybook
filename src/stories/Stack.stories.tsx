@@ -100,7 +100,12 @@ function createChildren(numberOfChildren: number) {
       return (
         <div
           key={index}
-          style={{ width: 100, height: 100, backgroundColor: "red" }}
+          style={{
+            width: 100,
+            height: 100,
+            backgroundColor: "red",
+            borderRadius: 3,
+          }}
         />
       );
     });

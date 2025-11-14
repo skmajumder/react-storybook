@@ -43,6 +43,7 @@ type Story = StoryObj<StoryProps>;
 /**
  * Primary variant button story.
  * Demonstrates the default primary button style with medium size.
+ * Features white text on blue background.
  *
  * @type {Story}
  */
@@ -58,6 +59,7 @@ export const Primary: Story = {
 /**
  * Secondary variant button story.
  * Demonstrates the secondary button style with medium size.
+ * Features black text on gray background.
  *
  * @type {Story}
  */

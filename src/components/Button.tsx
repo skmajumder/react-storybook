@@ -19,11 +19,12 @@ type ButtonProps = PropsWithChildren<{
 
 /**
  * A customizable button component with variant and size options.
+ * Primary variant has white text on blue background, secondary variant has black text on gray background.
  *
  * @param {ButtonProps} props - The component props.
  * @param {React.ReactNode} props.children - Content to be displayed inside the button.
  * @param {() => void} [props.onClick] - Optional click handler function.
- * @param {"primary" | "secondary"} [props.variant="primary"] - Visual style variant of the button. Defaults to "primary".
+ * @param {"primary" | "secondary"} [props.variant="primary"] - Visual style variant of the button. Primary has white text, secondary has black text. Defaults to "primary".
  * @param {"sm" | "md" | "lg"} [props.size="md"] - Size of the button. Defaults to "md".
  * @param {boolean} [props.disabled=false] - Whether the button is disabled. Defaults to false.
  *
@@ -53,9 +54,11 @@ export const Button = ({
   const variantStyles: Record<ButtonProps["variant"], CSSProperties> = {
     primary: {
       backgroundColor: "blue",
+      color: "white",
     },
     secondary: {
       backgroundColor: "gray",
+      color: "black",
     },
   };
 

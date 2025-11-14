@@ -23,12 +23,41 @@ type StoryProps = ComponentProps<typeof Button> & {
 
 /**
  * Storybook meta configuration for the Button component.
- * Defines the component and default story settings.
+ * Defines the component and default story settings with interactive controls.
  *
  * @type {Meta<StoryProps>}
  */
 const meta: Meta<StoryProps> = {
   component: Button,
+  argTypes: {
+    buttonText: {
+      control: "text",
+      description: "The text content to display inside the button",
+    },
+    variant: {
+      control: "select",
+      options: ["primary", "secondary"],
+      description: "Visual style variant of the button",
+    },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      description: "Size of the button",
+    },
+    color: {
+      control: "select",
+      options: ["white", "black", "gray"],
+      description: "Text color of the button",
+    },
+    disabled: {
+      control: "boolean",
+      description: "Whether the button is disabled",
+    },
+    onClick: {
+      action: "clicked",
+      description: "Click handler function",
+    },
+  },
 };
 
 export default meta;
@@ -68,6 +97,7 @@ export const Secondary: Story = {
     buttonText: "Secondary Button",
     variant: "secondary",
     size: "md",
+    color: "black",
   },
   render: ({ buttonText, ...args }) => <Button {...args}>{buttonText}</Button>,
 };
@@ -145,6 +175,27 @@ export const Disabled: Story = {
     variant: "primary",
     size: "md",
     disabled: true,
+  },
+  render: ({ buttonText, ...args }) => <Button {...args}>{buttonText}</Button>,
+};
+
+/**
+ * Interactive button story.
+ * Allows users to customize all button options including variant, size, color, disabled state,
+ * button text, and click handler through Storybook controls panel.
+ *
+ * @type {Story}
+ */
+export const Interactive: Story = {
+  args: {
+    buttonText: "Interactive Button",
+    variant: "primary",
+    size: "md",
+    color: "white",
+    disabled: false,
+    onClick: () => {
+      alert("Button clicked!");
+    },
   },
   render: ({ buttonText, ...args }) => <Button {...args}>{buttonText}</Button>,
 };

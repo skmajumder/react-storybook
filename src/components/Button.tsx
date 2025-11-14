@@ -1,5 +1,15 @@
 import type { CSSProperties, PropsWithChildren } from "react";
 
+/**
+ * Props for the Button component.
+ *
+ * @typedef {Object} ButtonProps
+ * @property {() => void} [onClick] - Optional click handler function.
+ * @property {"primary" | "secondary"} variant - Visual style variant of the button.
+ * @property {"sm" | "md" | "lg"} size - Size of the button.
+ * @property {boolean} [disabled] - Whether the button is disabled.
+ * @property {React.ReactNode} children - Content to be displayed inside the button.
+ */
 type ButtonProps = PropsWithChildren<{
   onClick?: () => void;
   variant: "primary" | "secondary";
@@ -7,6 +17,32 @@ type ButtonProps = PropsWithChildren<{
   disabled?: boolean;
 }>;
 
+/**
+ * A customizable button component with variant and size options.
+ *
+ * @param {ButtonProps} props - The component props.
+ * @param {React.ReactNode} props.children - Content to be displayed inside the button.
+ * @param {() => void} [props.onClick] - Optional click handler function.
+ * @param {"primary" | "secondary"} [props.variant="primary"] - Visual style variant of the button. Defaults to "primary".
+ * @param {"sm" | "md" | "lg"} [props.size="md"] - Size of the button. Defaults to "md".
+ * @param {boolean} [props.disabled=false] - Whether the button is disabled. Defaults to false.
+ *
+ * @returns {JSX.Element} A styled button element.
+ *
+ * @example
+ * ```tsx
+ * <Button variant="primary" size="md" onClick={() => console.log('clicked')}>
+ *   Click Me
+ * </Button>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * <Button variant="secondary" size="lg" disabled>
+ *   Disabled Button
+ * </Button>
+ * ```
+ */
 export const Button = ({
   children,
   onClick,
